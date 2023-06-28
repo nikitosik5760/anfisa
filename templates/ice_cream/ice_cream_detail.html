@@ -10,7 +10,11 @@
     <div class="col-12 col-md-5 col-xl-3" >
       <!--img-fluid: размер изображения подстроится под занимаемый блок -->
       <!-- img-thumbnail: вокруг изображения тонкая обводка -->
-      <img class="img-fluid img-thumbnail" src="{% static 'img/tmb.png' %}" alt="">
+      {% if ice_cream.image %}
+        <img class="img-fluid img-thumbnail" src="{{ice_cream.image.url}}" alt="">
+      {% else %}
+        <img class="img-fluid img-thumbnail" src="{% static 'img/tmb.png' %}" alt="">
+        {% endif %}
     </div>
     <!-- Блок описания займет всю ширину родительского блока на мобильном, 
        7/12 на планшете и 3/4 на компьютере -->   

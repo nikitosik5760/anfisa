@@ -15,7 +15,7 @@ def index(request):
 
 def ice_cream_list(request):
     template = 'ice_cream/ice_cream_list.html'
-    ice_cream = IceCream.objects
+    ice_cream = IceCream.objects.filter()
     # все мороженое
     context = {
         'ice_creams': ice_cream,
