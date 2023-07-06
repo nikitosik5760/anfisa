@@ -31,3 +31,13 @@ def ice_cream_detail(request, pk):
         'ice_cream': ice_cream,
     }
     return render(request, template, context)
+
+
+def ice_cream_reviews(request):
+    template = 'ice_cream/reviews.html'
+    ice_cream = IceCream.objects.filter()
+    # все мороженое
+    context = {
+        'ice_creams': ice_cream,
+    }
+    return render(request, template, context)
