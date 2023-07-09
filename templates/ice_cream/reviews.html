@@ -1,11 +1,22 @@
 {% extends 'base.html' %}
 {% load static %} 
 {% block content %}
-  <h1>Избранные сорта мороженого</h1>
+<h1>Туть можно выложить свой отзыв, приступайте!</h1>
   <!-- py-3: контент внутри блока размещается с отсупом сверху и снизу --> 
   <div class="row py-3">
-    {% for ice_cream in selected_ice_creams %}
-      {% include 'ice_cream/includes/ice_cream_card.html' %}  
-    {% endfor %}
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input class="btn btn-primary" type="submit" value="Добавить отзыв">
+</form>
+<hr>
+{% for review in reviews %}
+<p><strong>Имя:</strong> {{review.name}}</p>
+<p>Дата публикации: {{review.created_at}}</p>
+<p>{{review.content}}</p>
+<hr>
+{% empty %}
+<p>Коментарів немає</p>
+{% endfor %}
   </div>
 {% endblock %}
